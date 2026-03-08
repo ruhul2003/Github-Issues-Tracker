@@ -24,7 +24,8 @@
 
         <div class="flex items-center justify-between gap-4">
             <i class="fa-brands fa-sistrix"></i>
-            <input type="text" placeholder="Search issues..." class="input border-0 text-[16px] outline-none w-full max-w-xs" />
+            <input type="text" placeholder="Search issues..."
+                class="input border-0 text-[16px] outline-none w-full max-w-xs" />
             <button class="btn btn-primary"><i class="fa-solid fa-plus"></i>New Issue</button>
         </div>
     </nav>
@@ -63,10 +64,54 @@
             </div>
         </div>
 
+
+
         <div id="issues-container" class="issues mt-10 grid grid-cols-4 gap-5">
             <!-- Issues will be dynamically added here -->
         </div>
     </div>
+
+    <input type="checkbox" id="issue-modal" class="modal-toggle" />
+    <div class="modal" role="dialog">
+        <div class="modal-box max-w-2xl p-8 rounded-2xl relative">
+            <h3 id="modal-title" class="text-3xl font-bold text-gray-800"></h3>
+
+            <div class="flex items-center gap-3 mt-4 text-gray-500 font-medium border-b pb-6">
+                <span id="modal-status"
+                    class="px-4 py-1 rounded-full text-white text-sm bg-green-500 capitalize"></span>
+                <span>•</span>
+                <span id="modal-author-date"></span>
+            </div>
+
+            <div id="modal-labels" class="flex gap-2 mt-6"></div>
+
+            <div class="mt-6 text-gray-600 leading-relaxed text-lg">
+                <p id="modal-description"></p>
+            </div>
+
+            <div class="mt-10 p-6 bg-slate-50 rounded-2xl flex justify-between items-center border border-gray-100">
+                <div>
+                    <p class="text-gray-400 font-semibold mb-1 uppercase tracking-wider text-sm">Assignee:</p>
+                    <p id="modal-assignee" class="text-xl font-bold text-gray-800"></p>
+                </div>
+                <div class="text-right">
+                    <p class="text-gray-400 font-semibold mb-1 uppercase tracking-wider text-sm">Priority:</p>
+                    <span id="modal-priority" class="px-6 py-1.5 rounded-lg text-white font-bold inline-block"></span>
+                </div>
+            </div>
+
+            <div class="modal-action mt-8">
+                <label for="issue-modal"
+                    class="btn btn-primary bg-indigo-600 hover:bg-indigo-700 border-none px-8 rounded-xl">Close</label>
+            </div>
+        </div>
+        <label class="modal-backdrop" for="issue-modal">Close</label>
+    </div>
+
+
+    <!------------------------------- Footer ----------------------------->
+
+
 
     <script src="home.js"></script>
 </body>
