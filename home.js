@@ -1,6 +1,5 @@
-// ==============================
 // API URLS
-// ==============================
+
 const API_URL = "https://phi-lab-server.vercel.app/api/v1/lab/issues";
 const SEARCH_API_URL =
   "https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=";
@@ -9,9 +8,9 @@ const SINGLE_ISSUE_API = "https://phi-lab-server.vercel.app/api/v1/lab/issue/";
 // Global variable to store all issues
 let allIssues = [];
 
-// ==============================
-// Load issues from API (Initial Load)
-// ==============================
+
+// Load issues from API
+
 const loadIssues = () => {
   const container = document.getElementById("issues-container");
 
@@ -38,9 +37,9 @@ const loadIssues = () => {
     });
 };
 
-// ==============================
+
 // Open Modal Function (Using Single Issue API)
-// ==============================
+
 const openModal = (id) => {
   // 1. Open the modal shell first
   const modalCheckbox = document.getElementById("issue-modal");
@@ -58,23 +57,23 @@ const openModal = (id) => {
     .then((response) => {
       const issue = response.data;
 
-      // Populating Title and Description
+
       document.getElementById("modal-title").innerText = issue.title;
       document.getElementById("modal-description").innerText =
         issue.description;
 
-      // Status Badge
+
       const statusEl = document.getElementById("modal-status");
       statusEl.innerText = issue.status;
       statusEl.className = `px-4 py-1 rounded-full text-white text-sm capitalize ${
         issue.status === "open" ? "bg-green-500" : "bg-purple-500"
       }`;
 
-      // Author and Date info
+
       document.getElementById("modal-author-date").innerText =
         `Opened by ${issue.author} • ${new Date(issue.createdAt).toLocaleDateString()}`;
 
-      // Labels
+
       const labelContainer = document.getElementById("modal-labels");
       labelContainer.innerHTML = issue.labels
         .map((label) => {
@@ -88,7 +87,7 @@ const openModal = (id) => {
         })
         .join("");
 
-      // Assignee and Priority
+
       document.getElementById("modal-assignee").innerText = issue.author;
       const priorityEl = document.getElementById("modal-priority");
       priorityEl.innerText = issue.priority.toUpperCase();
@@ -106,15 +105,14 @@ const openModal = (id) => {
     });
 };
 
-// ==============================
+
 // Display issues
-// ==============================
+
 const displayIssues = (issues) => {
   const container = document.getElementById("issues-container");
   container.innerHTML = "";
 
   if (!issues || issues.length === 0) {
-    // Use col-span-full to center the message across all columns
     container.innerHTML = `<p class="text-gray-500 text-center mt-10 col-span-full text-lg">No issues found.</p>`;
     return;
   }
@@ -172,17 +170,15 @@ const displayIssues = (issues) => {
   });
 };
 
-// ==============================
 // Update counts section
-// ==============================
 const updateCounts = (issues) => {
   const countEl = document.getElementById("all-count");
   if (countEl) countEl.innerText = issues.length;
 };
 
-// ==============================
+
 // Tab Buttons
-// ==============================
+
 const tabButtons = document.querySelectorAll(".tab button");
 tabButtons.forEach((button) => {
   button.addEventListener("click", () => {
@@ -200,9 +196,9 @@ tabButtons.forEach((button) => {
   });
 });
 
-// ==============================
+
 // Search Functionality
-// ==============================
+
 const searchBtn = document.getElementById("search-btn");
 const searchInput = document.querySelector(
   'input[placeholder="Search issues..."]',
@@ -238,5 +234,5 @@ if (searchBtn && searchInput) {
   });
 }
 
-// Initial Page Load
+//  Page Load
 loadIssues();
