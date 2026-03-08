@@ -160,14 +160,24 @@ const updateCounts = (issues) => {
 };
 
 
-// Tab Buttons
+
+// Tab Buttons Logic
 
 const tabButtons = document.querySelectorAll(".tab button");
+
 tabButtons.forEach((button) => {
     button.addEventListener("click", () => {
-        tabButtons.forEach((btn) => btn.classList.remove("btn-primary"));
-        button.classList.add("btn-primary");
+        // 1. Reset ALL buttons to the "Inactive" style
+        tabButtons.forEach((btn) => {
+            btn.classList.remove("btn-primary"); // Remove blue
+            btn.classList.add("bg-white", "border-gray-200"); // Add white/border
+        });
 
+        // 2. Set the CLICKED button to the "Active" style
+        button.classList.add("btn-primary");
+        button.classList.remove("bg-white", "border-gray-200");
+
+        // 3. Filter logic
         const tabText = button.innerText.toLowerCase();
         let filtered = tabText === "all" ? allIssues : allIssues.filter((issue) => issue.status === tabText);
 
