@@ -26,7 +26,7 @@
             <i class="fa-brands fa-sistrix"></i>
             <input type="text" placeholder="Search issues..."
                 class="input border-0 text-[16px] outline-none w-full max-w-xs" />
-            <button class="btn btn-primary"><i class="fa-solid fa-plus"></i>New Issue</button>
+            <button id="search-btn" class="btn btn-primary">Search</button>
         </div>
     </nav>
 
@@ -68,6 +68,14 @@
 
         <div id="issues-container" class="issues mt-10 grid grid-cols-4 gap-5">
             <!-- Issues will be dynamically added here -->
+            <div id="issues-container" class="issues mt-10 grid grid-cols-4 gap-5 relative min-h-[200px]">
+                <div id="loading-spinner"
+                    class="absolute inset-0 flex flex-col items-center justify-center bg-white z-10">
+                    <span class="loading loading-spinner loading-lg text-primary"></span>
+                    <p class="text-gray-500 mt-2 font-medium">Fetching issues...</p>
+                </div>
+
+            </div>
         </div>
     </div>
 
