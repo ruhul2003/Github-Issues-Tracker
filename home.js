@@ -171,5 +171,27 @@ tabButtons.forEach((button) => {
   });
 });
 
+// ==============================
+// Search Functionality
+// ==============================
+const searchInput = document.querySelector('input[placeholder="Search issues..."]');
+
+searchInput.addEventListener("input", (e) => {
+    const searchText = e.target.value.toLowerCase().trim();
+
+    // Filter issues based on title or description
+    const filtered = allIssues.filter((issue) => {
+        const titleMatch = issue.title.toLowerCase().includes(searchText);
+        const descriptionMatch = issue.description.toLowerCase().includes(searchText);
+        
+        return titleMatch || descriptionMatch;
+    });
+
+    // Re-render the cards and update the count
+    displayIssues(filtered);
+    updateCounts(filtered);
+});
+
+
 // Page load
 loadIssues();
