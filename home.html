@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,9 +10,11 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="https://kit.fontawesome.com/0398fc8d82.js" crossorigin="anonymous"></script>
 </head>
+
 <body class="bg-gray-50 min-h-screen">
 
-    <nav class="navbar bg-base-100 shadow-lg w-[95%] mx-auto mt-4 rounded-lg flex flex-col md:flex-row items-center justify-between p-4 gap-4">
+    <nav
+        class="navbar bg-base-100 shadow-lg w-[95%] mx-auto mt-4 rounded-lg flex flex-col md:flex-row items-center justify-between p-4 gap-4">
         <div class="logo flex items-center gap-3">
             <img class="h-9 w-9" src="./assets/github-logo.png" alt="GitHub Logo">
             <h1 class="text-xl md:text-2xl font-semibold text-gray-800">GitHub Issues Tracker</h1>
@@ -28,7 +31,7 @@
     </nav>
 
     <div class="main w-[95%] lg:w-10/12 xl:w-9/12 mt-10 mx-auto pb-20">
-        
+
         <div class="tab flex items-center justify-start gap-3 overflow-x-auto no-scrollbar py-2">
             <button class="btn btn-primary min-w-[100px]">All</button>
             <button class="btn min-w-[100px] bg-white border-gray-200">Open</button>
@@ -56,8 +59,9 @@
             </div>
         </div>
 
-        <div id="issues-container" class="issues mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 min-h-[300px] relative">
-            </div>
+        <div id="issues-container"
+            class="issues mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 min-h-[300px] relative">
+        </div>
     </div>
 
     <input type="checkbox" id="issue-modal" class="modal-toggle" />
@@ -77,7 +81,8 @@
                 <p id="modal-description"></p>
             </div>
 
-            <div class="mt-10 p-6 bg-slate-50 rounded-2xl flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border border-gray-100">
+            <div
+                class="mt-10 p-6 bg-slate-50 rounded-2xl flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border border-gray-100">
                 <div>
                     <p class="text-gray-400 font-bold mb-1 uppercase tracking-widest text-xs">Assignee</p>
                     <p id="modal-assignee" class="text-xl font-extrabold text-gray-800"></p>
@@ -97,4 +102,5 @@
 
     <script src="home.js"></script>
 </body>
+
 </html>
