@@ -24,13 +24,13 @@
             <div class="form mt-6 flex items-center justify-center">
                 <fieldset class="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4">
                     <label class="label text-black font-semibold text-[16px]">Username</label>
-                    <input type="text" class="input outline-none border-none" placeholder="Enter Username" />
+                    <input type="text" id="username-input" class="input outline-none border-none" placeholder="Enter Username" />
                     <p class="text-purple-600">Default : admin</p>
 
                     <label class="label text-black font-semibold mt-4 text-[16px]">Password</label>
-                    <input type="password" class="input outline-none border-none" placeholder="Enter Password" />
+                    <input type="password" id="password-input" class="input outline-none border-none" placeholder="Enter Password" />
                     <p class="text-purple-600">Default : admin123</p>
-                    <button class="btn btn-primary mt-4">Sign In</button>
+                    <button  id="login-button" class="btn btn-primary mt-4">Sign In</button>
                 </fieldset>
             </div>
         </div>
@@ -44,6 +44,9 @@
             </ul>
         </div>
     </div>
+
+
+    <script src="./login.js"></script>
 </body>
 
 </html>
